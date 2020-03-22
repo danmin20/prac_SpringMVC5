@@ -2,8 +2,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>SpringMVCstep1</groupId>
-	<artifactId>SpringMVCstep1</artifactId>
+	<groupId>MiniProject</groupId>
+	<artifactId>MiniProject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<build>
@@ -26,6 +26,7 @@
 			</plugin>
 		</plugins>
 	</build>
+
 	<properties>
 		<javax.servlet-version>4.0.1</javax.servlet-version>
 		<javax.servlet.jsp-version>2.3.3</javax.servlet.jsp-version>
@@ -61,5 +62,4 @@
 		</dependency>
 
 	</dependencies>
-
 </project>
