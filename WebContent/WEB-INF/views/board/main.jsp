@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:url var="root" value="/" />
+<c:set var="root" value="${pageContext.request.contextPath }/" />
 
 <!DOCTYPE html>
 <html>
@@ -39,7 +39,7 @@
 					<tbody>
 						<tr>
 							<td class="text-center d-none d-md-table-cell">10</td>
-							<td><a href='board_read.html'>글 제목 입니다</a></td>
+							<td><a href='${root }board/read'>글 제목 입니다</a></td>
 							<td class="text-center d-none d-md-table-cell">홍길동</td>
 							<td class="text-center d-none d-md-table-cell">2018-12-12</td>
 
@@ -135,7 +135,7 @@
 				</div>
 
 				<div class="text-right">
-					<a href="board_write.html" class="btn btn-primary">글쓰기</a>
+					<a href="${root }board/write" class="btn btn-primary">글쓰기</a>
 				</div>
 
 			</div>

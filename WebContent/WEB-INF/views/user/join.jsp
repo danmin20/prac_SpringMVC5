@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:url var="root" value="/" />
+<c:set var="root" value="${pageContext.request.contextPath }/" />
 
 <!DOCTYPE html>
 <html>
@@ -28,7 +28,7 @@
 			<div class="col-sm-6">
 				<div class="card shadow">
 					<div class="card-body">
-						<form action="login.html" method="post">
+						<form action="${root }user/login" method="get">
 							<div class="form-group">
 								<label for="user_name">¿Ã∏ß</label> <input type="text"
 									id="user_name" name="user_name" class="form-control" />

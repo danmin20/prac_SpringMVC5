@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:url var="root" value="/" />
+<c:set var="root" value="${pageContext.request.contextPath }/" />
 
 <!DOCTYPE html>
 <html>
@@ -40,7 +40,7 @@
 							<tbody>
 								<tr>
 									<td class="text-center">5</td>
-									<th><a href='board_read.html'>제목입니다</a></th>
+									<th><a href='${root }board/read'>제목입니다</a></th>
 									<td class="text-center d-none d-xl-table-cell">2018-12-12</td>
 								</tr>
 								<tr>
@@ -66,7 +66,7 @@
 							</tbody>
 						</table>
 
-						<a href="board_main.html" class="btn btn-primary">더보기</a>
+						<a href="${root }board/main" class="btn btn-primary">더보기</a>
 					</div>
 				</div>
 			</div>
@@ -208,7 +208,6 @@
 			</div>
 		</div>
 	</div>
-
 	<c:import url="/WEB-INF/views/include/bottom_info.jsp" />
 
 </body>
