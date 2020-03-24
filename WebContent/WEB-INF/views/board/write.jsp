@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
+	language="java"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <c:set var="root" value="${pageContext.request.contextPath }/" />
 
 <!DOCTYPE html>
@@ -8,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>╧л╢о га╥на╖ф╝</title>
+<title>К╞╦К▀┬ М■└К║°Л═²М┼╦</title>
 <!-- Bootstrap CDN -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
@@ -28,28 +29,31 @@
 			<div class="col-sm-6">
 				<div class="card shadow">
 					<div class="card-body">
-						<form action="${root }board/read" method="get">
+						<form:form action="${root }board/write_pro" method="post"
+							modelAttribute="writeContentBean" enctype="multipart/form-data">
+							<form:hidden path="content_board_idx" />
 							<div class="form-group">
-								<label for="board_subject">а╕╦Я</label> <input type="text"
-									id="board_subject" name="board_subject" class="form-control" />
+								<form:label path="content_subject">Л═°К╙╘</form:label>
+								<form:input path="content_subject" class="form-control" />
+								<form:errors path="content_subject" style="color:red" />
 							</div>
 							<div class="form-group">
-								<label for="board_content">Ё╩©К</label>
-								<textarea id="board_content" name="board_content"
-									class="form-control" rows="10" style="resize: none"></textarea>
+								<form:label path="content_text">К┌╢Л ╘</form:label>
+								<form:textarea path="content_text" class="form-control"
+									rows="10" style="resize: none" />
+								<form:errors path="content_text" style="color:red" />
 							</div>
 							<div class="form-group">
-								<label for="board_file">ц╥╨н юл╧лаЖ</label> <input type="file"
-									id="board_file" name="board_file" class="form-control"
+								<form:label path="upload_file">Л╡╗К╤─ Л²╢К╞╦Л╖─</form:label>
+								<form:input type="file" path="upload_file" class="form-control"
 									accept="image/*" />
 							</div>
 							<div class="form-group">
 								<div class="text-right">
-									<button type="submit" class="btn btn-primary">юш╪╨го╠Б</button>
+									<form:button class="btn btn-primary">Л·▒Л└╠М∙≤Й╦╟</form:button>
 								</div>
 							</div>
-
-						</form>
+						</form:form>
 					</div>
 				</div>
 			</div>
