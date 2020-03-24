@@ -22,6 +22,7 @@ import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.danmin.beans.UserBean;
+import com.danmin.interceptor.CheckLoginInterceptor;
 import com.danmin.interceptor.TopMenuInterceptor;
 import com.danmin.mapper.BoardMapper;
 import com.danmin.mapper.TopMenuMapper;
@@ -127,6 +128,11 @@ public class ServletAppContext implements WebMvcConfigurer {
 
 		InterceptorRegistration reg1 = registry.addInterceptor(topMenuInterceptor);
 		reg1.addPathPatterns("/**");
+
+		CheckLoginInterceptor checkLoginInterceptor = new CheckLoginInterceptor(loginUserBean);
+		InterceptorRegistration reg2 = registry.addInterceptor(checkLoginInterceptor);
+		reg2.addPathPatterns("/user/modify", "/user/logout", "/board/*");
+		reg2.excludePathPatterns("/board/main");
 	}
 
 	@Bean
