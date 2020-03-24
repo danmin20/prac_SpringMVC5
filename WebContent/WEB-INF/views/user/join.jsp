@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
+	language="java"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <c:set var="root" value="${pageContext.request.contextPath }/" />
@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>¹Ì´Ï ÇÁ·ÎÁ§Æ®</title>
+<title>ë¯¸ë‹ˆ í”„ë¡œì íŠ¸</title>
 <!-- Bootstrap CDN -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
@@ -26,7 +26,7 @@
 		var user_id = $("#user_id").val()
 		
 		if(user_id.length == 0){
-			alert("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä")
+			alert("ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”")
 			return
 		}
 		
@@ -36,10 +36,10 @@
 			dataType: "text",
 			success: function(result){
 				if(result.trim() == "true"){
-					alert("»ç¿ëÇÒ ¼ö ÀÖ´Â ¾ÆÀÌµğÀÔ´Ï´Ù")
+					alert("ì‚¬ìš©í•  ìˆ˜ ìˆëŠ” ì•„ì´ë””ì…ë‹ˆë‹¤")
 					$("#userIdExist").val("true")
 				}else{
-					alert("»ç¿ëÇÒ ¼ö ¾ø´Â ¾ÆÀÌµğÀÔ´Ï´Ù")
+					alert("ì‚¬ìš©í•  ìˆ˜ ì—†ëŠ” ì•„ì´ë””ì…ë‹ˆë‹¤")
 					$("#userIdExist").val("false")
 				}
 			}
@@ -61,37 +61,37 @@
 					<div class="card-body">
 						<form:form action="${root }user/join_pro" method="post"
 							modelAttribute="joinUserBean">
-							<form:hidden path="UserIdExist" />
+							<form:hidden path="userIdExist" />
 							<div class="form-group">
-								<form:label path="user_name">ÀÌ¸§</form:label>
+								<form:label path="user_name">ì´ë¦„</form:label>
 								<form:input path="user_name" class="form-control" />
 								<form:errors path="user_name" style="color:red" />
 							</div>
 							<div class="form-group">
-								<form:label path="user_id">¾ÆÀÌµğ</form:label>
+								<form:label path="user_id">ì•„ì´ë””</form:label>
 								<div class="input-group">
 									<form:input path="user_id" class="form-control"
 										onkeypress="resetUserIdExist()" />
 									<div class="input-group-append">
 										<button type="button" class="btn btn-primary"
-											onclick="checkUserIdExist()">Áßº¹È®ÀÎ</button>
+											onclick="checkUserIdExist()">ì¤‘ë³µí™•ì¸</button>
 									</div>
 								</div>
 								<form:errors path="user_id" style="color:red" />
 							</div>
 							<div class="form-group">
-								<form:label path="user_pw">ºñ¹Ğ¹øÈ£</form:label>
+								<form:label path="user_pw">ë¹„ë°€ë²ˆí˜¸</form:label>
 								<form:password path="user_pw" class="form-control" />
 								<form:errors path="user_pw" style="color:red" />
 							</div>
 							<div class="form-group">
-								<form:label path="user_pw2">ºñ¹Ğ¹øÈ£ È®ÀÎ</form:label>
+								<form:label path="user_pw2">ë¹„ë°€ë²ˆí˜¸ í™•ì¸</form:label>
 								<form:password path="user_pw2" class="form-control" />
 								<form:errors path="user_pw2" style="color:red" />
 							</div>
 							<div class="form-group">
 								<div class="text-right">
-									<form:button class="btn btn-primary">È¸¿ø°¡ÀÔ</form:button>
+									<form:button class="btn btn-primary">íšŒì›ê°€ì…</form:button>
 								</div>
 							</div>
 						</form:form>

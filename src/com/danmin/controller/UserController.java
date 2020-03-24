@@ -2,6 +2,7 @@ package com.danmin.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -12,11 +13,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.danmin.beans.UserBean;
+import com.danmin.service.UserService;
 import com.danmin.validator.UserValidator;
 
 @Controller
 @RequestMapping("/user")
 public class UserController {
+
+	@Autowired
+	private UserService userService;
 
 	@GetMapping("/login")
 	public String login() {
@@ -33,6 +38,8 @@ public class UserController {
 		if (result.hasErrors()) {
 			return "user/join";
 		}
+
+		userService.addUserInfo(joinUserBean);
 
 		return "user/join_success";
 	}

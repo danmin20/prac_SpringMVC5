@@ -3,6 +3,7 @@ package com.danmin.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.danmin.beans.UserBean;
 import com.danmin.dao.UserDao;
 
 @Service
@@ -20,5 +21,9 @@ public class UserService {
 		} else {
 			return false;
 		}
+	}
+
+	public void addUserInfo(UserBean joinUserBean) {
+		userDao.addUserInfo(joinUserBean);
 	}
 }
