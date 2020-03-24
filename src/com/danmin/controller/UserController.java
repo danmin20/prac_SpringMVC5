@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.danmin.beans.UserBean;
+import com.danmin.dao.UserDao;
 import com.danmin.service.UserService;
 import com.danmin.validator.UserValidator;
 
@@ -73,8 +74,23 @@ public class UserController {
 	}
 
 	@GetMapping("/modify")
-	public String modify() {
+	public String modify(@ModelAttribute("modifyUserBean") UserBean modifyUserBean) {
+
+		userService.getModifyUserInfo(modifyUserBean);
+
 		return "user/modify";
+	}
+
+	@PostMapping("/modify_pro")
+	public String modify_pro(@Valid @ModelAttribute("modifyUserBean") UserBean modifyUserBean, BindingResult result) {
+
+		if (result.hasErrors()) {
+			return "user/modify";
+		}
+		
+		userService.modifyUserInfo(modifyUserBean);
+
+		return "user/modify_success";
 	}
 
 	@GetMapping("/logout")
