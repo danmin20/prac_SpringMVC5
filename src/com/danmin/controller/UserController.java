@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.danmin.beans.UserBean;
-import com.danmin.dao.UserDao;
 import com.danmin.service.UserService;
 import com.danmin.validator.UserValidator;
 
